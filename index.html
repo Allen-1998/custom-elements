@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="./index.js"></script>
+    <link rel="stylesheet" href="./index.css" />
+  </head>
+  <body>
+    <div onclick="addNewElement()">addNewElement</div>
+    <div><copy-text>可以复制</copy-text></div>
+  </body>
+  <script>
+    let i = 0;
+    function addNewElement() {
+      const newElement = document.createElement("copy-text");
+      newElement.innerText = "可以复制" + i++;
+      document.body.appendChild(newElement);
+    }
+  </script>
+</html>

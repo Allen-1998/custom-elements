@@ -1,0 +1,15 @@
+{
+  "name": "copy-text",
+  "version": "1.0.0",
+  "description": "html native copy components",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "copy",
+    "customElement"
+  ],
+  "author": "allen-1998",
+  "license": "MIT"
+}

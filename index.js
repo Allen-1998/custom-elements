@@ -30,7 +30,7 @@ class CopyText extends HTMLElement {
       });
     } else if (document.execCommand("copy")) {
       const textEl = document.createElement("input");
-      textEl.setAttribute("value", content);
+      textEl.setAttribute("value", text);
       document.body.appendChild(textEl);
       textEl.select();
       document.execCommand("copy");

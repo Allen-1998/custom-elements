@@ -39,7 +39,7 @@ class ImagePreview extends HTMLElement {
     const img = document.createElement("img");
     const imgSrc = this.getAttribute("src");
     img.src = imgSrc;
-    img.style = "width: 100%;cursor: pointer;";
+    img.style = "width: 100%;height: 100%;cursor: pointer;";
     img.onclick = this.openModel.bind(this);
     shadow.appendChild(img);
     this.img = img;

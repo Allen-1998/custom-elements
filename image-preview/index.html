@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="./index.js"></script>
+  </head>
+  <body>
+    <div style="display: flex; width: 500px; border: 1px solid">
+      <span style="margin-right: 10px">图片: </span>
+      <image-preview
+        style="width: 0; flex: 1"
+        src="https://picsum.photos/id/10/200/300"
+        src-list='["https://picsum.photos/id/10/200/300","https://picsum.photos/id/11/200/300","https://picsum.photos/id/12/200/300"]'
+      ></image-preview>
+      <image-preview
+        style="width: 0; flex: 1"
+        src="https://picsum.photos/id/11/200/300"
+        src-list='["https://picsum.photos/id/10/200/300","https://picsum.photos/id/11/200/300","https://picsum.photos/id/12/200/300"]'
+      ></image-preview>
+      <image-preview
+        style="width: 0; flex: 1"
+        src="https://picsum.photos/id/12/200/300"
+        src-list='["https://picsum.photos/id/10/200/300","https://picsum.photos/id/11/200/300","https://picsum.photos/id/12/200/300"]'
+      ></image-preview>
+    </div>
+  </body>
+</html>

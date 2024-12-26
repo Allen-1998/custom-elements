@@ -117,8 +117,8 @@ class CopyText extends HTMLElement {
   }
 }
 
-window.onload = function () {
+window.addEventListener("load", function () {
   if (!customElements.get("copy-text")) {
     customElements.define("copy-text", CopyText);
   }
-};
+});

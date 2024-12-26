@@ -289,8 +289,8 @@ class ImagePreview extends HTMLElement {
   }
 }
 
-window.onload = function () {
+window.addEventListener("load", function () {
   if (!customElements.get("image-preview")) {
     customElements.define("image-preview", ImagePreview);
   }
-};
+});

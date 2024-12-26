@@ -90,13 +90,13 @@ class ImagePreview extends HTMLElement {
     const closeIcon = this.creatSvgIcon("closeIcon");
     closeIcon.style =
       closeIcon.getAttribute("style") +
-      "position: absolute;top: 40px;right: 40px;color: #fff;background: #606266;opacity: 0.7;border-radius: 50%;padding: 10px;";
+      "position: absolute;top: 40px;right: 40px;color: #fff;background: #606266;opacity: 0.7;border-radius: 50%;padding: 10px; box-sizing: content-box;";
     closeIcon.onclick = this.closeModel.bind(this);
     model.appendChild(closeIcon);
 
     const actions = document.createElement("div");
     actions.style =
-      "position: absolute;left: 50%;bottom: 30px;transform: translateX(-50%);color: #fff;background: #606266;opacity: 0.7;padding: 10px 30px;display: flex;align-items: center;justify-content: space-between; width: 150px;border-radius: 30px;";
+      "position: absolute;left: 50%;bottom: 30px;transform: translateX(-50%);color: #fff;background: #606266;opacity: 0.7;padding: 10px 30px;display: flex;align-items: center;justify-content: space-between; width: 150px;border-radius: 30px; box-sizing: content-box;";
     actions.onclick = (e) => {
       e.stopPropagation();
     };
@@ -117,7 +117,7 @@ class ImagePreview extends HTMLElement {
     const arrowLeftIcon = this.creatSvgIcon("arrowLeftIcon");
     arrowLeftIcon.style =
       arrowLeftIcon.getAttribute("style") +
-      "position: absolute;top: 50%;left: 40px;transform: translateY(-50%);color: #fff;background: #606266;opacity: 0.7;border-radius: 50%;padding: 10px;";
+      "position: absolute;top: 50%;left: 40px;transform: translateY(-50%);color: #fff;background: #606266;opacity: 0.7;border-radius: 50%;padding: 10px; box-sizing: content-box;";
     arrowLeftIcon.onclick = (e) => {
       e.stopPropagation();
       this.handleActions("prev");
@@ -127,7 +127,7 @@ class ImagePreview extends HTMLElement {
     const arrowRightIcon = this.creatSvgIcon("arrowRightIcon");
     arrowRightIcon.style =
       arrowRightIcon.getAttribute("style") +
-      "position: absolute;top: 50%;right: 40px;transform: translateY(-50%);color: #fff;background: #606266;opacity: 0.7;border-radius: 50%;padding: 10px;";
+      "position: absolute;top: 50%;right: 40px;transform: translateY(-50%);color: #fff;background: #606266;opacity: 0.7;border-radius: 50%;padding: 10px; box-sizing: content-box;";
     arrowRightIcon.onclick = (e) => {
       e.stopPropagation();
       this.handleActions("next");

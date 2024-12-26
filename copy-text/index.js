@@ -71,6 +71,7 @@ class CopyText extends HTMLElement {
         left: 50%;
         transform: translate(-50%, -150%);
         padding: 0 40px;
+        box-sizing: border-box;
         border-radius: 4px;
         height: 30px;
         line-height: 30px;

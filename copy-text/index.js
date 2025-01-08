@@ -1,11 +1,20 @@
 class CopyText extends HTMLElement {
   constructor() {
     super();
-    this.style.cursor = "pointer";
-    this.style.userSelect = "none";
-    this.style.display = "flex";
-
     const shadow = this.attachShadow({ mode: "open" });
+
+    const style = document.createElement("style");
+    style.innerHTML = `
+      :host {
+        cursor: pointer;
+        user-select: none;
+      }
+      svg {
+        width: 14px;
+        height: 14px;
+      }
+    `;
+    shadow.appendChild(style);
 
     const slot = document.createElement("slot");
     shadow.appendChild(slot);
@@ -20,7 +29,7 @@ class CopyText extends HTMLElement {
       icon.innerHTML =
         '<g fill="#3287c8"><path d="M184 72v144H40V72Z" opacity=".2"/><path d="M184 64H40a8 8 0 0 0-8 8v144a8 8 0 0 0 8 8h144a8 8 0 0 0 8-8V72a8 8 0 0 0-8-8Zm-8 144H48V80h128Zm48-168v144a8 8 0 0 1-16 0V48H72a8 8 0 0 1 0-16h144a8 8 0 0 1 8 8Z"/></g>';
     }
-    icon.style = this.getAttribute("icon-style") || "width: 14px; height: 14px";
+    icon.style = this.getAttribute("icon-style") || "";
     shadow.appendChild(icon);
 
     this.onclick = function (e) {
@@ -113,7 +122,19 @@ class CopyText extends HTMLElement {
     body.appendChild(messageEl);
   }
   connectedCallback() {
-    console.log("Custom square element added to page.");
+    const slot = this.shadowRoot.querySelector("slot");
+    const icon = this.shadowRoot.querySelector("svg");
+    const slotChange = () => {
+      const nodes = slot.assignedNodes();
+      const hasText = nodes.some((node) => node.textContent);
+      if (!hasText) {
+        icon.style.display = "none";
+      } else {
+        icon.style.display = "inline-block";
+      }
+    };
+    slotChange();
+    slot.addEventListener("slotchange", slotChange);
   }
 }
 

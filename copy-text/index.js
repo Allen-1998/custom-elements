@@ -9,6 +9,7 @@ class CopyText extends HTMLElement {
         cursor: pointer;
         user-select: none;
       }
+      img,
       svg {
         width: 14px;
         height: 14px;
@@ -123,19 +124,24 @@ class CopyText extends HTMLElement {
   }
   connectedCallback() {
     const slot = this.shadowRoot.querySelector("slot");
-    const icon = this.shadowRoot.querySelector("svg");
-    const slotChange = () => {
-      const nodes = slot.assignedNodes();
-      const hasText = nodes.some((node) => node.textContent);
-      if (!hasText) {
-        icon.style.display = "none";
-      } else {
-        icon.style.display = "inline-block";
-      }
-    };
-    slotChange();
-    slot.addEventListener("slotchange", slotChange);
+    slot.addEventListener("slotchange", this.handleSlotChange);
+    this.handleSlotChange();
   }
+  disconnectedCallback() {
+    const slot = this.shadowRoot.querySelector("slot");
+    slot.removeEventListener("slotchange", this.handleSlotChange);
+  }
+  handleSlotChange = () => {
+    const slot = this.shadowRoot.querySelector("slot");
+    const icon = this.shadowRoot.querySelector("svg");
+    const nodes = slot.assignedNodes();
+    const hasText = nodes.some((node) => node.textContent);
+    if (!hasText) {
+      icon.style.display = "none";
+    } else {
+      icon.style.display = "inline-block";
+    }
+  };
 }
 
 window.addEventListener("load", function () {

@@ -9,6 +9,7 @@
   </head>
   <body>
     <div onclick="addNewElement()">addNewElement</div>
+    <div onclick="changeText()">changeText</div>
     <div><copy-text>可以复制</copy-text></div>
   </body>
   <script>
@@ -17,6 +18,14 @@
       const newElement = document.createElement("copy-text");
       newElement.innerText = "可以复制" + i++;
       document.body.appendChild(newElement);
+    }
+    function changeText() {
+      const copyText = document.querySelector("copy-text");
+      if (copyText.innerText) {
+        copyText.innerText = "";
+      } else {
+        copyText.innerText = "可以复制";
+      }
     }
   </script>
 </html>
